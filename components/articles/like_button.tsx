@@ -2,7 +2,6 @@
 import React, { useOptimistic, useTransition } from 'react'
 import { Button } from '../ui/button'
 import { Bookmark, Share2, ThumbsUp } from 'lucide-react'
-import { boolean } from 'zod';
 import { Like } from '@prisma/client';
 import { LikeDislikeToggle } from '@/actions/like_dislike';
 
