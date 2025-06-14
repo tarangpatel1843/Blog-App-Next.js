@@ -44,7 +44,7 @@ const ArticleDetailPage: React.FC<ArticleDetailPageProps> = async ({ article }) 
     const { userId } = await auth()
     const user = await prisma.user.findUnique({ where: { clearkUserId: userId as string } });
 
-    const isLiked:boolean = likes.some((like) => like.userId === user?.id);
+    const isLiked: boolean = likes.some((like) => like.userId === user?.id);
 
     return (
         <div className="min-h-screen bg-background">
