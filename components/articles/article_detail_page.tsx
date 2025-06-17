@@ -10,6 +10,7 @@ import { Card } from '../ui/card';
 import { MessageCircle } from 'lucide-react';
 
 type ArticleDetailPageProps = {
+
     article: Prisma.ArticlesGetPayload<{
         include: {
             author: {
@@ -42,7 +43,7 @@ const ArticleDetailPage: React.FC<ArticleDetailPageProps> = async ({ article }) 
 
     const likes = await prisma.like.findMany({ where: { articleId: article.id } });
     const { userId } = await auth()
-    const user = await prisma.user.findUnique({ where: { clearkUserId: userId as string } });
+    const user = await prisma.user.findUnique({ where: { clerkUserId: userId as string } });
 
     const isLiked: boolean = likes.some((like) => like.userId === user?.id);
 

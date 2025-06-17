@@ -71,7 +71,7 @@ export const editArticle = async (articleId: string, prevState: CreateArticleFor
     }
 
     const exisitingUser = await prisma.user.findUnique({
-        where: { clearkUserId: userId }
+        where: { clerkUserId: userId }
     })
     if (!exisitingUser || existingArticle.authorId !== exisitingUser.id) {
         return {

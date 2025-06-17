@@ -1,10 +1,9 @@
 "use server";
-
-import { auth } from '@clerk/nextjs/server';
 import { z } from 'zod';
 import { v2 as cloudinary, UploadApiResponse } from "cloudinary";
 import { prisma } from '@/lib/prisma';
 import { revalidatePath } from 'next/cache';
+import { auth } from '@clerk/nextjs/server';
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -59,7 +58,7 @@ export const createArticles = async (
   }
 
   const existingUser = await prisma.user.findUnique({
-    where: { clearkUserId: userId }
+    where: { clerkUserId: userId }
   });
 
   if (!existingUser) {

@@ -35,7 +35,7 @@ export const createComment = async (articleId: string, prevState: createCommentF
         }
     }
     const existingUser = await prisma.user.findUnique({
-        where: { clearkUserId: userId }
+        where: { clerkUserId: userId }
     });
     if (!existingUser) {
         return {

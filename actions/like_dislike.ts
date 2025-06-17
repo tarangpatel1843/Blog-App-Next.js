@@ -12,7 +12,7 @@ export async function LikeDislikeToggle(articleId : string) {
 
   // Ensure the user exists in the database
   const user = await prisma.user.findUnique({
-    where: { clearkUserId: userId },
+    where: { clerkUserId: userId },
   });
 
   if (!user) {
@@ -21,7 +21,7 @@ export async function LikeDislikeToggle(articleId : string) {
 
   // Check if the user has already liked the article
   const existingLike = await prisma.like.findFirst({
-    where: { articleId, userId: user.id }, // Use `user.id`, not `clerkUserId`
+    where: { articleId, userId: user.id }, // Use `user.id`, not `clearkUserId`
   });
 
   if (existingLike) {
